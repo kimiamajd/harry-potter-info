@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Harry Potter Wiki</title>
+        <link rel="stylesheet" href="hp.css">
+    </head>
+    <body>
+        <div class = 'top-nav'>
+            <a class = 'active' href="text.html">Text</a>
+            <a href="images.html">Images</a>
+            <a href="videos.html">Videos</a>
+            <a href="table.html">Table</a>
+        </div>
+        <h1>Harry Potter Quotes </h1>
+        <br>
+        <div class = 'content'>
+        <div class = 'formBox'>
+        <h3> Add yourself to our email list to recieve weekly Harry Potter quotes</h3> 
+        <form>
+            <label for="name">Enter your name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="email">Enter email address:</label><br>
+            <input type="text" id="email" name="email"><br>
+            <p>Which Harry Potter book would you like to recieve quotes from?</p>
+            <div>
+                <input type="radio" id="all"
+                name="book" value="all">
+                <label for="all">All </label>
+                <br>
+              <input type="radio" id="book1"
+               name="book" value="book1">
+              <label for="book1">Harry Potter and the Sorcerer's Stone</label>
+                <br>
+              <input type="radio" id="book2"
+               name="book" value="book2">
+              <label for="book2">Harry Potter and the Chamber of Secrets</label>
+                <br>
+              <input type="radio" id="book3"
+               name="book" value="book3">
+              <label for="book3">Harry Potter and the Prisoner of Azkaban</label>
+              <br>
+              <input type="radio" id="book4"
+               name="book" value="book4">
+              <label for="book3">Harry Potter and the Goblet of Fire </label>
+                <br>
+              <input type="radio" id="book5"
+               name="book" value="book5">
+              <label for="book5">Harry Potter and the Order of the Phoenix</label>
+                <br>
+              <input type="radio" id="book6"
+               name="book" value="book6">
+              <label for="book6">Harry Potter and the Half Blood Prince</label>
+                <br>
+              <input type="radio" id="book7"
+               name="book" value="book7">
+              <label for="book7">Harry Potter and the Deathly Hallows</label>
+
+            </div>
+            <div>
+              <button type="submit">Submit</button>
+            </div>
+        </form>
+        </div>
+        </div>        
+        
+        <div id = quoteList class = content>
+        </div>
+    </body>
+</html>
+
+<script>
+    quotes =[
+        {
+            text: "Let us step into the night and pursue that flighty temptress, adventure", 
+            book: "Harry Potter and the Half Blood Prince",
+        },
+        {
+            text: "I am what I am, an' I'm not ashamed. 'Never be ashamed,' my ol' dad used ter say, 'there's some who'll hold it against you, but they're not worth botherin' with.'",
+            book: "Harry Potter and the Goblet of Fire",
+        },
+        {
+            text: "But you know, happiness can be found even in the darkest of times, if one only remembers to turn on the light.",
+            book: "Harry Potter and the Prisoner of Azkaban",
+        },
+        {
+            text: "There are some things you can't share without ending up liking each other, and knocking out a twelve-foot mountain troll is one of them.",
+            book: "Harry Potter and the Sorcerer's Stone",
+        },
+        {
+            text: "It was, he thought, the difference between being dragged into the arena to face a battle to the death and walking into the arena with your head held high. Some people, perhaps, would say that there was little to choose between the two ways, but Dumbledore knew — and so do I, thought Harry, with a rush of fierce pride, and so did my parents — that there was all the difference in the world.",
+            book: "Harry Potter and the Half Blood Prince",
+        },
+        {
+            text: "It is our choices ... that show what we truly are, far more than our abilities.",
+            book: "Harry Potter and the Chamber of Secrets",
+        },
+        {
+            text: "Mr. Moony presents his compliments to Professor Snape, and begs him to keep his abnormally large nose out of other people's business. Mr. Prongs agrees with Mr. Moony, and would like to add that Professor Snape is an ugly git. Mr. Padfoot would like to register his astonishment that an idiot like that ever became a professor. Mr. Wormtail bids Professor Snape good day, and advises him to wash his hair, the slimeball.",
+            book: "Harry Potter and the Prisoner of Azkaban"
+        },
+        {
+            text: "I DON'T CARE!\" Harry yelled at them, snatching up a lunascope and throwing it into the fireplace. \"I'VE HAD ENOUGH, I'VE SEEN ENOUGH, I WANT OUT, I WANT IT TO END, I DON'T CARE ANYMORE!\"\"You do care,\" said Dumbledore. He had not flinched or made a single move to stop Harry demolishing his office. His expression was calm, almost detached. \"You care so much you feel as though you will bleed to death with the pain of it.",
+            book: "Harry Potter and the Order of the Phoenix"
+        },
+        {
+            text: "Killing is not so easy as the innocent believe.",
+            book: "Harry Potter and the Half Blood Prince",
+        }
+    ];
+    
+    var div = document.createElement("div");
+    quotes.forEach(element => {
+        var par = document.createElement("p");
+        par.setAttribute("id", "quoteBlock");
+        par.setAttribute("class", "quoteBlock");
+        par.innerText = ("\"" + element.text + "\"");
+        par.appendChild(document.createElement("br"));
+        auth = document.createTextNode("- J.K. Rowling, ");
+        par.appendChild(auth);
+        book = document.createElement("i");
+        bookTitle = document.createTextNode(element.book);
+        book.appendChild(bookTitle);
+        par.appendChild(book);
+        div.appendChild(par);
+
+        document.getElementById("quoteList").appendChild(par);
+    });
+    
+    
+</script>
