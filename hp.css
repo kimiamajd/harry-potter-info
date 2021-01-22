@@ -1,10 +1,15 @@
+/**REFRENCES: 
+https://zellwk.com/blog/viewport-based-typography/
+**/
+
 h1 {
     color:#373D20;
     text-align: center;
 }
 .content{
     display: block; 
-    
+    margin-left: 5vw;
+    margin-right: 5vw;
 }
 
 form {
@@ -23,7 +28,7 @@ form {
 .top-nav a{
     display: inline-block;
     padding: 8px 15px;
-    font-size: 20px;
+    font-size: calc(100% + 0.5vw);
     text-decoration: none;
     font: sans-serif;
     color: black;
