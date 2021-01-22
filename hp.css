@@ -84,9 +84,12 @@ form {
 }
 
 iframe{
-    width : 420px;
+   /** width : 420px;
     height: 315px;
-    padding: 15px;
+    padding: 15px;**/
+    margin-top: 30px;
+    width: 100%;
+    vertical-align: middle;
 }
 
 table{
