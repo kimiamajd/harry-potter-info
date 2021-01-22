@@ -4,8 +4,8 @@ h1 {
 }
 .content{
     display: block; 
-    margin-right: 200px;
-    margin-left:200px;
+    margin-right: 5vw;
+    margin-left:5vw;
 }
 
 form {
