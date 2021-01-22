@@ -1,5 +1,7 @@
 /**REFRENCES: 
 https://zellwk.com/blog/viewport-based-typography/
+https://www.w3schools.com/howto/howto_css_image_grid_responsive.asp
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 **/
 
 h1 {
@@ -45,27 +47,36 @@ form {
     color: #eff1ed;
 }
 
-
-
-
 .row {
     display: flex;
-    padding: 8px 10px;
-    margin-bottom: 30px;
-    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    }
+
+.col{
+    flex: 25%;
+    max-width: 23%;
+}
+.col img {
+    margin-top: 30px;
+    width: 100%;
+    vertical-align: middle;
 }
 
-.row img {
-    width: 325px ;
-    height: auto ;
-    padding: 0 10px;
-}
-
-.imgContainer{
-    width: 325px;
-    height: auto;
-    padding: 0 20px
-}
+@media screen and (max-width: 800px) {
+    .col {
+      flex: 50%;
+      max-width: 40%;
+    }
+  }
+  
+@media screen and (max-width: 600px) {
+    .col {
+      flex: 100%;
+      max-width: 90%;
+    }
+  }
 
 .vidBox{
     display: flex;
