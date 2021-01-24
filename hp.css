@@ -64,6 +64,24 @@ form {
     vertical-align: middle;
 }
 
+.overlay {
+    position: fixed;
+    pointer-events: none;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    transition: opacity .2s ease-out;
+    width :50vw;
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.overlay img{
+    width: 100%;
+    vertical-align: middle;
+}
+
 @media screen and (max-width: 800px) {
     .col {
       flex: 50%;
@@ -77,7 +95,6 @@ form {
       max-width: 90%;
     }
   }
-
 
 iframe{
     margin-top: 30px;
