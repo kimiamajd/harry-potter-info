@@ -10,6 +10,9 @@
 
     </head>
     <body>
+        <button onclick="toTop()" class="scrollButton" id = "scrollButton" > Scroll to top</button>
+        <script src="scroll.js"></script>
+
         <div class = 'top-nav'>
             <a href="index.html">Text</a>
             <a href="images.html">Images</a>
@@ -19,24 +22,82 @@
        <h1>Harry Potter Movie Trailers</h1>
        
        <div class = "content">
+
+        <!----OVERLAYS-->
+
+        <div class = overlay id = ov1>
+            <iframe src="https://www.youtube.com/embed/VyHV0BRtdxo" ></iframe>
+        </div>
+        <div class = overlay id = ov2>
+            <iframe src="https://www.youtube.com/embed/lAxgztbYDbs" ></iframe>
+        </div>
+        <div class = overlay id = ov3>
+            <iframe src= "https://www.youtube.com/embed/1bq0qff4iF8"></iframe>
+        </div>
+        <div class = overlay id = ov4>
+            <iframe src="https://www.youtube.com/embed/3EGojp4Hh6I"></iframe>
+        </div>
+        <div class = overlay id = ov5>
+            <iframe src="https://www.youtube.com/embed/y6ZW7KXaXYk"></iframe>
+        </div>
+        <div class = overlay id = ov6>
+            <iframe src="https://www.youtube.com/embed/sg81Lts5kYY"></iframe>
+        </div>
+        <div class = overlay id = ov7>
+            <iframe src="https://www.youtube.com/embed/MxqsmsA8y5k"></iframe>
+        </div>
+        <div class = overlay id = ov8>
+            <iframe src="https://www.youtube.com/embed/5NYt1qirBWg"></iframe>
+        </div>
+
+
             <div class = "row">
                 <div class = col>
-                    <iframe src="https://www.youtube.com/embed/VyHV0BRtdxo"></iframe>
-                    <iframe src="https://www.youtube.com/embed/lAxgztbYDbs"></iframe>
+                    <iframe src="https://www.youtube.com/embed/VyHV0BRtdxo" over = "ov1" onclick = "return showOverlay(event);"></iframe>
+                    <iframe src="https://www.youtube.com/embed/lAxgztbYDbs" over = "ov2" onclick = "return showOverlay(event);"></iframe>
                 </div>
                 <div class = "col">
-                    <iframe src="https://www.youtube.com/embed/1bq0qff4iF8"></iframe>
-                    <iframe src="https://www.youtube.com/embed/3EGojp4Hh6I"></iframe>
+                    <iframe src="https://www.youtube.com/embed/1bq0qff4iF8" over = "ov3" onclick = "return showOverlay(event);"></iframe>
+                    <iframe src="https://www.youtube.com/embed/3EGojp4Hh6I" over = "ov4" onclick = "return showOverlay(event);"></iframe>
                 </div>
                 <div class = "col"> 
-                    <iframe src="https://www.youtube.com/embed/y6ZW7KXaXYk"></iframe>
-                    <iframe src="https://www.youtube.com/embed/sg81Lts5kYY"></iframe>
+                    <iframe src="https://www.youtube.com/embed/y6ZW7KXaXYk" over = "ov5" onclick = "return showOverlay(event);"></iframe>
+                    <iframe src="https://www.youtube.com/embed/sg81Lts5kYY" over = "ov6" onclick = "return showOverlay(event);"></iframe>
                 </div>
                 <div class = "col">  
-                    <iframe src="https://www.youtube.com/embed/MxqsmsA8y5k"></iframe>
-                    <iframe src="https://www.youtube.com/embed/5NYt1qirBWg"></iframe>
+                    <iframe src="https://www.youtube.com/embed/MxqsmsA8y5k" over = "ov7" onclick = "return showOverlay(event);"></iframe>
+                    <iframe src="https://www.youtube.com/embed/5NYt1qirBWg" over = "ov8" onclick = "return showOverlay(event);"></iframe>
                 </div>
          </div>
         </div>
+        <script>
+            var currentOv;
+            function showOverlay(event) {
+                console.log("in show overlay");
+                if (currentOv){
+                    return;
+                }
+                event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation()
+                var overlayID = event.target.getAttribute('over');
+                var overlayElem = document.getElementById(overlayID);
+                overlayElem.style.opacity = 1;
+                currentOv = overlayElem;
+                return false;
+            }
+            
+            document.addEventListener('click', function(event) {
+                console.log(currentOv);
+                //var isClickInsideElement = ignoreClickOnMeElement.contains(event.target);
+                var isClickInsideElement = currentOv.contains(event.target);
+                if (!isClickInsideElement) {
+                    console.log("click is outside element");
+                    currentOv.style.opacity = 0;
+                    currentOv = null;
+                }
+            });
+            
+                </script>
     </body>
 </html>
