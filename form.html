@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Harry Potter Wiki</title>
+        <link rel="stylesheet" href="hp.css">
+    </head>
+    <body>
+        <button onclick="toTop()" class="scrollButton" id = "scrollButton" > Scroll to top</button>
+        <script src="scroll.js"></script>
+
+        <div class = 'top-nav'>
+            <a href="index.html">Text</a>
+            <a href="images.html">Images</a>
+            <a href="videos.html">Videos</a>
+            <a href="table.html">Table</a>
+            <a class = "active" href = "form.html">Form</a>
+        </div>
+        <h1>Harry Potter Quotes </h1>
+        <br>
+        <div class = 'content'>
+        <div class = 'formBox'>
+        <h3> Add yourself to our email list! </h3> 
+        <form name = "form1">
+            <label for="email">Enter your email address:</label><br>
+            <input type="text" id="email" name="email"><br>
+            <div id = "no_err" class = "no_err"> Email successfully recorded</div>
+            <div id = "err" class = "err">Invalid email address</div>
+            <script>
+                err = document.getElementById("err");
+                no_err = document.getElementById("no_err");
+                console.log("hi");
+                function submitEmail(){
+                    email = document.getElementById("email").value;
+                    console.log(email);
+                    isValid = validateEmail(email);
+                    if (isValid){
+                        no_err.style.display = "block";
+                        err.style.display = "none";
+                        console.log("valid");
+                        return false;
+                    }
+                    else {
+                        err.style.display = "block";
+                        no_err.style.display = "none";
+                        console.log("invalid");
+                        return false;
+                    }
+                }
+    
+                function validateEmail(email){
+                    var lastThree = email.substr(email.length - 4);
+                    if (email.includes("@") && (lastThree == ".com" || lastThree == ".edu")){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+            </script>
+            <div>
+                <input type = "submit" onclick = "return submitEmail();">
+            </div>
+        </form>
+        </div>
+        </div>        
+        
+       

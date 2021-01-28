@@ -89,14 +89,34 @@ form {
     margin-top: auto;
     margin-bottom: auto;
 }
+.v-overlay {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .2s ease-out;
+    width :80vw;
+    height: 80%;
+    margin-top: auto;
+    margin-bottom: auto;
+    z-index: 100;
+    pointer-events: none;
+    max-width: 90vw;
+}
 
 .overlay img{
     width: 100%;
     vertical-align: middle;
 }
-.overlay iframe{
+.v-overlay iframe{
+    position: relative;
+    height: 100%;
     width: 100%;
+    max-width: 80vw;
     vertical-align: middle;
+    z-index: 1;
+    pointer-events: none;
 }
 
 @media screen and (max-width: 800px) {
@@ -117,6 +137,21 @@ iframe{
     margin-top: 30px;
     width: 100%;
     vertical-align: middle;
+    z-index: 15;
+    pointer-events: auto;
+}
+
+.vid{
+    position:relative;
+}
+
+.transparent{
+    position:absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
 }
 
 table{
@@ -128,4 +163,12 @@ table, th, td {
   }
 th, tr{
     height: 65px;
+}
+
+.err{
+    display: none;
+}
+
+.no_err{
+    display:none;
 }
