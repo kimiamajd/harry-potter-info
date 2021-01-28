@@ -2,30 +2,133 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Harry Potter photos</title>
         <link rel="stylesheet" href="hp.css">
 
     </head>
     <body>
+        <button onclick="toTop()" class="scrollButton" id = "scrollButton" > Scroll to top</button>
         <div class = 'top-nav'>
             <a href="index.html">Text</a>
             <a class = "active" href="images.html">Images</a>
             <a href="videos.html">Videos</a>
             <a href="table.html">Table</a>
+            <a href = "form.html">Form</a>
+
         </div>
        <h1>Harry Potter Images</h1>
 
-       <div class = "content">
+       <div class = "content" id = "content">
+
+        <!----OVERLAYS-->
+
+        <div class = overlay id = ov1>
+            <img src = "images/hp1.jpg">
+        </div>
+        <div class = overlay id = ov5>
+            <img src = "images/hp5.jpg">
+        </div>
+        <div class = overlay id = ov8>
+            <img src = "images/hp8.jpg">
+        </div>
+        <div class = overlay id = ov20>
+            <img src = "images/hp20.jpeg">
+        </div>
+        <div class = overlay id = ov6>
+            <img src = "images/hp6.jpg">
+        </div>
+        <div class = overlay id = ov7>
+            <img src = "images/hp7.jpg">
+        </div>
+        <div class = overlay id = ov4>
+            <img src = "images/hp4.jpg">
+        </div>
+        <div class = overlay id = ov21>
+            <img src = "images/hp21.jpg">
+        </div>
+        <div class = overlay id = ov22>
+            <img src = "images/hp22.jpg">
+        </div>
+        <div class = overlay id = ov23>
+            <img src = "images/hp23.webp">
+        </div>
+        <div class = overlay id = ov24>
+            <img src = "images/hp24.jpg">
+        </div>
+        <div class = overlay id = ov25>
+            <img src = "images/hp25.jpg">
+        </div>
+        <div class = overlay id = ov26>
+            <img src = "images/hp26.jpg">
+        </div>
+        <div class = overlay id = ov27>
+            <img src = "images/hp27.png">
+        </div>
+        <div class = overlay id = ov28>
+            <img src = "images/hp28.jpg">
+        </div>
+        <div class = overlay id = ov29>
+            <img src = "images/hp29.jpg">
+        </div>
+
+        <!----->
+
            <div class = "row">
-                <div class = imgContainer><img src = "hp1.jpg"></div> 
-                <div class = imgContainer><img src = "hp5.jpg"></div> 
-                <div class = imgContainer><img src = "hp8.jpg"></div> 
+                <div class = "col">
+                    <img src = "images/hp1.jpg" over = "ov1" onclick = "return showOverlay(event);">
+                    <img src = "images/hp5.jpg" over = "ov5" onclick = "return showOverlay(event);">
+                    <img src = "images/hp8.jpg" over = "ov8" onclick = "return showOverlay(event);"> 
+                    <img src = "images/hp20.jpeg" over = "ov20" onclick = "return showOverlay(event);">
+                </div> 
+                <div class = "col">
+                    <img src = "images/hp6.jpg"  over = "ov6" onclick = "return showOverlay(event);">
+                    <img src = "images/hp7.jpg"  over = "ov7" onclick = "return showOverlay(event);">
+                    <img src = "images/hp4.jpg"  over = "ov4" onclick = "return showOverlay(event);">
+                    <img src = "images/hp21.jpg" over = "ov21" onclick = "return showOverlay(event);">
+                </div>
+                <div class = "col">
+                    <img src = "images/hp22.jpg"  over = "ov4" onclick = "return showOverlay(event);">
+                    <img src = "images/hp23.webp" over = "ov21" onclick = "return showOverlay(event);">
+                    <img src = "images/hp24.jpg"  over = "ov24" onclick = "return showOverlay(event);">
+                    <img src = "images/hp25.jpg" over = "ov25" onclick = "return showOverlay(event);">
+                </div> 
+                <div class = "col">
+                    <img src = "images/hp26.jpg"  over = "ov26" onclick = "return showOverlay(event);">
+                    <img src = "images/hp27.png" over = "ov27" onclick = "return showOverlay(event);">
+                    <img src = "images/hp28.jpeg"  over = "ov28" onclick = "return showOverlay(event);">
+                    <img src = "images/hp29.jpg" over = "ov29" onclick = "return showOverlay(event);">
+                </div>
             </div>
-        
-           <div class = "row">
-            <div class = imgContainer><img src = "hp6.jpg"></div> 
-            <div class = imgContainer><img src = "hp7.jpg"></div> 
-            <div class = imgContainer><img src = "hp4.jpg"></div> 
        </div>
+
+       <script src="scroll.js"></script>
+
+    <script>
+var currentOv;
+function showOverlay(event) {
+    if (currentOv){
+        return;
+    }
+    event.stopPropagation();
+    var overlayID = event.target.getAttribute('over');
+    var overlayElem = document.getElementById(overlayID);
+    overlayElem.style.opacity = 1;
+    currentOv = overlayElem;
+    
+}
+
+document.addEventListener('click', function(event) {
+    console.log(currentOv);
+    //var isClickInsideElement = ignoreClickOnMeElement.contains(event.target);
+    var isClickInsideElement = currentOv.contains(event.target);
+    if (!isClickInsideElement) {
+        console.log("click is outside element");
+        currentOv.style.opacity = 0;
+        currentOv = null;
+    }
+});
+
+    </script>
     </body>
 </html>

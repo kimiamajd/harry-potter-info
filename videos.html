@@ -4,36 +4,135 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Harry Potter photos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Harry Potter Videos</title>
         <link rel="stylesheet" href="hp.css">
 
     </head>
     <body>
+        <button onclick="toTop()" class="scrollButton" id = "scrollButton" > Scroll to top</button>
+        <script src="scroll.js"></script>
+
         <div class = 'top-nav'>
             <a href="index.html">Text</a>
             <a href="images.html">Images</a>
             <a class = "active" href="videos.html">Videos</a>
             <a href="table.html">Table</a>
+            <a href = "form.html">Form</a>
+
         </div>
        <h1>Harry Potter Movie Trailers</h1>
        
        <div class = "content">
-            <div class = "vidBox">
-                <iframe src="https://www.youtube.com/embed/VyHV0BRtdxo"></iframe>
-                <iframe src="https://www.youtube.com/embed/lAxgztbYDbs"></iframe>
-            </div>
-            <div class = "vidBox">
-                <iframe src="https://www.youtube.com/embed/1bq0qff4iF8"></iframe>
-                <iframe src="https://www.youtube.com/embed/3EGojp4Hh6I"></iframe>
-            </div>
-            <div class = "vidBox"> 
-                <iframe src="https://www.youtube.com/embed/y6ZW7KXaXYk"></iframe>
-                <iframe src="https://www.youtube.com/embed/sg81Lts5kYY"></iframe>
-            </div>
-            <div class = "vidBox">  
-                <iframe src="https://www.youtube.com/embed/MxqsmsA8y5k"></iframe>
-                <iframe src="https://www.youtube.com/embed/5NYt1qirBWg"></iframe>
-            </div>
-       </div>
+
+        <!----OVERLAYS-->
+
+        <div class = v-overlay id = ov1 vidid = "vid1">
+            <iframe id = "vid1" src="https://www.youtube.com/embed/VyHV0BRtdxo" ></iframe>
+        </div>
+        <div class = v-overlay id = ov2 vidid = "vid2">
+            <iframe id = "vid2" src="https://www.youtube.com/embed/lAxgztbYDbs" ></iframe>
+        </div>
+        <div class = v-overlay id = ov3 vidid = "vid3">
+            <iframe id = "vid3" src= "https://www.youtube.com/embed/1bq0qff4iF8"></iframe>
+        </div>
+        <div class = v-overlay id = ov4 vidid = "vid4">
+            <iframe id = "vid4" src="https://www.youtube.com/embed/3EGojp4Hh6I"></iframe>
+        </div>
+        <div class = v-overlay id = ov5 vidid = "vid5">
+            <iframe id = "vid5" src="https://www.youtube.com/embed/y6ZW7KXaXYk"></iframe>
+        </div>
+        <div class = v-overlay id = ov6 vidid = "vid6">
+            <iframe id = "vid6" src="https://www.youtube.com/embed/sg81Lts5kYY"></iframe>
+        </div>
+        <div class = v-overlay id = ov7 vidid = "vid7">
+            <iframe id = "vid7" src="https://www.youtube.com/embed/MxqsmsA8y5k"></iframe>
+        </div>
+        <div class = v-overlay id = ov8 vidid = "vid8">
+            <iframe id = "vid8" src="https://www.youtube.com/embed/5NYt1qirBWg"></iframe>
+        </div>
+
+
+            <div class = "row">
+                <div class = col>
+                    <div class = "vid">
+                        <iframe src="https://www.youtube.com/embed/VyHV0BRtdxo"></iframe>
+                        <div class = "transparent" over = "ov1" vidid = "vid1" onclick = "return showOverlay(event)"></div>
+                    </div>
+                    <div class = "vid">
+                        <iframe src="https://www.youtube.com/embed/lAxgztbYDbs" over = "ov2" onclick = "return showOverlay(event);"></iframe>
+                        <div class = "transparent" over = "ov2" vidid = "vid2" onclick = "return showOverlay(event)"></div>
+                    </div>
+                </div>
+                <div class = "col">
+                    <div class = "vid">   
+                        <iframe src="https://www.youtube.com/embed/1bq0qff4iF8"></iframe>
+                        <div class = "transparent" over = "ov3" vidid = "vid3" onclick = "return showOverlay(event)"></div>
+                    </div>
+                    <div class = "vid">
+                        <iframe src="https://www.youtube.com/embed/3EGojp4Hh6I" over = "ov4" onclick = "return showOverlay(event);"></iframe>
+                        <div class = "transparent" over = "ov4" vidid = "vid4" onclick = "return showOverlay(event)"></div>
+                    </div>
+                </div>
+                <div class = "col"> 
+                    <div class = "vid">
+                        <iframe src="https://www.youtube.com/embed/y6ZW7KXaXYk" over = "ov5" onclick = "return showOverlay(event);"></iframe>
+                        <div class = "transparent" over = "ov5" vidid = "vid5" onclick = "return showOverlay(event)"></div>
+                    </div>
+                    <div class = "vid">
+                        <iframe src="https://www.youtube.com/embed/sg81Lts5kYY" over = "ov6" onclick = "return showOverlay(event);"></iframe>
+                        <div class = "transparent" over = "ov6" vidid = "vid6" onclick = "return showOverlay(event)"></div>
+                    </div>
+                </div>
+                <div class = "col"> 
+                    <div class = "vid"> 
+                        <iframe src="https://www.youtube.com/embed/MxqsmsA8y5k" over = "ov7" onclick = "return showOverlay(event);"></iframe>
+                        <div class = "transparent" over = "ov7" vidid = "vid7" onclick = "return showOverlay(event)"></div>
+                    </div>
+                    <div class = "vid">
+                        <iframe src="https://www.youtube.com/embed/5NYt1qirBWg" over = "ov8" onclick = "return showOverlay(event);"></iframe>
+                        <div class = "transparent" over = "ov8" vidid = "vid8" onclick = "return showOverlay(event)"></div>
+
+                    </div>
+                </div>
+         </div>
+        </div>
+        <script>
+            var currentOv;
+            function showOverlay(event) {
+                console.log("in show overlay");
+                if (currentOv){
+                    return;
+                }
+                event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation()
+                var overlayID = event.target.getAttribute('over');
+                var overlayElem = document.getElementById(overlayID);
+                var vidID = event.target.getAttribute('vidid');
+                var vidElem = document.getElementById(vidID);
+                vidElem.style.pointerEvents = "all";
+                overlayElem.style.opacity = 1;
+                currentOv = overlayElem;
+                return false;
+            }
+            
+            document.addEventListener('click', function(event) {
+                console.log(currentOv);
+                //var isClickInsideElement = ignoreClickOnMeElement.contains(event.target);
+                var isClickInsideElement = currentOv.contains(event.target);
+                if (!isClickInsideElement) {
+                    console.log("click is outside element");
+                    vidId = currentOv.getAttribute("vidid");
+                    vidElem = document.getElementById(vidId);
+                    vidElem.style.pointerEvents = "none";
+                    vidElem.contentWindow.postMessage(JSON.stringify({ event: 'command', 
+                    func: 'pauseVideo' }), '*');
+                    currentOv.style.opacity = 0;
+                    currentOv = null;
+                }
+            });
+            
+                </script>
     </body>
 </html>
